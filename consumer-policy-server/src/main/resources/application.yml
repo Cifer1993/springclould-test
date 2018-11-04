@@ -1,9 +1,9 @@
 server:
-  port: 8001
+  port: 8003
 spring:
   application:
-    name: provider-user
-  datasource:                           #æ•°æ®åº“è¿æ¥#
+      name: consumer-policy
+  datasource:                           #Êı¾İ¿âÁ¬½Ó#
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/springboot-test
     username: root
