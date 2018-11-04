@@ -20,17 +20,17 @@ public class OrderController {
     @Autowired
     private LoadBalancerClient loadBalancerClient;
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/getuser/{id}")
     public User findById(@PathVariable Long id) {
         return this.restTemplate.getForObject("http://provider-user/" + id, User.class);
     }
 
-    @GetMapping("/user/say/{str}")
+    @GetMapping("/say/{str}")
     public String say(@PathVariable String str){
         return str;
     }
 
-    @GetMapping("/user/getIpAndPort")
+    @GetMapping("/getIpAndPort")
     public String getIpAndPort() {
         return this.restTemplate.getForObject("http://provider-user/getIpAndPort", String.class);
     }
