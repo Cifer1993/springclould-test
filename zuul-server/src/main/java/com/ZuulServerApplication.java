@@ -1,5 +1,6 @@
 package com;
 
+import com.filetr.PreRequestLogFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -19,5 +20,10 @@ public class ZuulServerApplication {
 	@LoadBalanced
 	public RestTemplate restTemplate(){
 		return new RestTemplate();
+	}
+
+	@Bean
+	public PreRequestLogFilter preRequestLogFilter(){
+		return new PreRequestLogFilter();
 	}
 }

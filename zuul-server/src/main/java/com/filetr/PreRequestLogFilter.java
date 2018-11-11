@@ -1,13 +1,18 @@
 package com.filetr;
 
 import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by Administrator on 2018/11/8.
  */
 //创建请求到达之前的日志信息
 public class PreRequestLogFilter extends ZuulFilter{
+    private static final Logger LOGGER = LoggerFactory.getLogger(PreRequestLogFilter.class);
 
     //返回过滤器的类型
     @Override
@@ -22,12 +27,17 @@ public class PreRequestLogFilter extends ZuulFilter{
     }
 
     @Override
+    //是否执行过滤器
     public boolean shouldFilter() {
-        return false;
+        return true;
     }
 
     @Override
     public Object run() {
+        RequestContext ctx = RequestContext.getCurrentContext();
+        HttpServletRequest request = ctx.getRequest();
+        System.out.println("+++++++++++++++");
+        LOGGER.info(String.format("send %s request to %s", request.getMethod(), request.getRequestURL().toString()));
         return null;
     }
 }
