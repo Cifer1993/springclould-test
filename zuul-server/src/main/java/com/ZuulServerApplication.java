@@ -16,14 +16,4 @@ public class ZuulServerApplication {
 		SpringApplication.run(ZuulServerApplication.class, args);
 	}
 
-	@Bean
-	@LoadBalanced
-	public RestTemplate restTemplate(){
-		return new RestTemplate();
-	}
-
-	@Bean
-	public PreRequestLogFilter preRequestLogFilter(){
-		return new PreRequestLogFilter();
-	}
 }
