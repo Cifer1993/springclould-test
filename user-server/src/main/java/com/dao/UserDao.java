@@ -4,7 +4,6 @@ import com.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Repository;
 
 /**
  * Created by Administrator on 2018/10/29.

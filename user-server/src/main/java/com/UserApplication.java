@@ -8,9 +8,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 @SpringBootApplication
 @MapperScan("com.dao")
-public class ProviderUserApplication {
+public class UserApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProviderUserApplication.class, args);
+		SpringApplication.run(UserApplication.class, args);
 	}
 }
