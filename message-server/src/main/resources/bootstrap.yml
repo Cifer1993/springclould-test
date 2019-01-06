@@ -1,0 +1,29 @@
+server:
+  port: 8004
+spring:
+  application:
+    name: message-server
+  datasource:                           #数据库连接#
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springboot-test
+    username: root
+    password: 123456
+  cloud:
+    kafka:
+      # 服务器地址
+      bootstrap-servers: 192.168.153.130:9092
+      template:    # 指定默认topic id
+          default-topic: kafkatest
+      consumer:
+        # key/value的序列化
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+        groupId: mygroup
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
