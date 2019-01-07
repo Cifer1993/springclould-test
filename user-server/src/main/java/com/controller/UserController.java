@@ -21,7 +21,7 @@ public class UserController {
     @Autowired
     private Registration registration;
 
-    @GetMapping("/{id}")
+    @GetMapping("/getUserById/{id}")
     public User findById(@PathVariable Long id) {
         User user = userService.getUserById(id);
         return user;
