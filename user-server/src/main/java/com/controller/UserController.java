@@ -14,6 +14,7 @@ import org.springframework.cloud.client.serviceregistry.Registration;
  * Created by Administrator on 2018/10/29.
  */
 @RestController
+@RequestMapping("/userServer")
 public class UserController {
 
     @Autowired
@@ -33,7 +34,7 @@ public class UserController {
     }
 
     @GetMapping("/getIpAndPort")
-    public String findById() {
+    public String getIpAndPort() {
         return registration.getHost() + ":" + registration.getPort();
     }
 }

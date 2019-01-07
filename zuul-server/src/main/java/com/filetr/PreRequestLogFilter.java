@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 //创建请求到达之前的日志信息
 public class PreRequestLogFilter extends ZuulFilter{
-    private static final Logger LOGGER = LoggerFactory.getLogger(PreRequestLogFilter.class);
 
     //返回过滤器的类型
     @Override
@@ -36,8 +35,6 @@ public class PreRequestLogFilter extends ZuulFilter{
     public Object run() {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
-        System.out.println("+++++++++++++++");
-        LOGGER.info(String.format("send %s request to %s", request.getMethod(), request.getRequestURL().toString()));
         return null;
     }
 }

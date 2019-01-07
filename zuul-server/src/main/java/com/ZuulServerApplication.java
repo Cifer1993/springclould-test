@@ -12,6 +12,11 @@ import org.springframework.web.client.RestTemplate;
 @EnableZuulProxy
 public class ZuulServerApplication {
 
+	@Bean
+	@LoadBalanced
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
 	public static void main(String[] args) {
 		SpringApplication.run(ZuulServerApplication.class, args);
 	}
