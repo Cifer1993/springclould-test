@@ -12,3 +12,7 @@ eureka:
 management:
   security:
     enabled: false
+
+#zuul:
+  #忽略指定服务
+  #ignored-services: car-server

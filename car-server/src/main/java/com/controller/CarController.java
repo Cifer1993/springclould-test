@@ -1,7 +1,7 @@
 package com.controller;
 
+import com.FeignClient.CarFeignClient;
 import com.entity.User;
-import com.feign.CarFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +18,6 @@ public class CarController {
     @GetMapping("/user/{id}")
     public User findById(@PathVariable Long id) {
 
-        return carFeignClient.findById(id);
+        return carFeignClient.findUserById(id);
     }
 }

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Created by Administrator on 2018/11/8.
  */
-//创建请求到达之前的日志信息
+//创建请求到达之前在控制台输出
 public class PreRequestLogFilter extends ZuulFilter{
 
     //返回过滤器的类型
@@ -22,7 +22,8 @@ public class PreRequestLogFilter extends ZuulFilter{
 
     @Override
     public int filterOrder() {
-        return 0;
+
+        return FilterConstants.PRE_DECORATION_FILTER_ORDER - 1;
     }
 
     @Override
@@ -35,6 +36,7 @@ public class PreRequestLogFilter extends ZuulFilter{
     public Object run() {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
+        System.out.println(request.getMethod());
         return null;
     }
 }

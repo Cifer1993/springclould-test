@@ -23,7 +23,7 @@ public class UserMsgProvider {
     public String sendKafka(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("发送消息");
         try {
-            for(Integer i=0; i<150; i++) {
+            for(Integer i=0; i<15; i++) {
                 String message = i.toString();
                 kafkaTemplate.send("kafkatest", message);
                 System.out.println(message);
