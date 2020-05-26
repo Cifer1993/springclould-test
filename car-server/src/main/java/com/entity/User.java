@@ -7,6 +7,7 @@ import javax.persistence.*;
  * Created by Administrator on 2018/11/5.
  */
 @Entity
+//@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

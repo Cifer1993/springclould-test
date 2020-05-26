@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.Entity.User;
 
-import java.math.BigDecimal;
-
 /**
  * Created by Administrator on 2019/1/10.
  */
@@ -23,10 +21,9 @@ class UserFeignClientFallback implements UserFeginClient{
     @Override
     public User findUserById(Long id) {
         User user = new User();
-        user.setId(-1L);
-        user.setName("默认用户");
-        user.getAge(26);
-        user.setBalance(BigDecimal.valueOf(111111));
+//        user.setId(-1L);
+//        user.setName("默认用户");
+//        user.getAge(26);
         return user;
     }
 }

@@ -1,4 +1,4 @@
-package springcloule.eureka.test;
+package com;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -14,6 +14,6 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 public class EurekaApplication {
 
 	public static void main(String[] args) {
-		new SpringApplicationBuilder(EurekaApplication.class).web(true).run(args);
+		new SpringApplicationBuilder(EurekaApplication.class).run(args);
 	}
 }

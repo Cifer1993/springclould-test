@@ -15,11 +15,11 @@ public class AsyncTask {
     private int i = 0;
     @Async
     public Future<String> task(){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         i++;
         System.out.println(Thread.currentThread().getName()+"异步调用"+i);
         return new AsyncResult<>("调用完成"+i);

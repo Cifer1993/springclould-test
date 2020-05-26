@@ -1,5 +1,7 @@
 package com.policy.controller;
 
+import com.netflix.discovery.DiscoveryClient;
+import com.netflix.discovery.converters.Auto;
 import com.policy.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.serviceregistry.Registration;
@@ -19,6 +21,8 @@ public class GetUserServer {
     private UserFeginClient userFeginClient;
     @Autowired
     private Registration registration;
+    @Autowired
+    private DiscoveryClient discoveryClient;
 
     @RequestMapping("/getUserById/{id}")
     public User getUserById(@PathVariable("id") Long id){

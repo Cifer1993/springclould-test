@@ -52,6 +52,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-alibaba-dependencies</artifactId>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -59,6 +63,14 @@
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>Edgware.SR3</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!--spring cloud alibaba依赖-->
+			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
+				<version>2.1.0.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
