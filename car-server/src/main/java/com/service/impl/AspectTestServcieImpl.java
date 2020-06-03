@@ -19,7 +19,6 @@ public class AspectTestServcieImpl implements AspectTestService {
     }
 
     @Override
-    @RequestLog
     public void AspectB() {
         System.out.println("傻逼AOP");
     }
