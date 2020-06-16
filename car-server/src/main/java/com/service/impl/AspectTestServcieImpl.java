@@ -1,6 +1,5 @@
 package com.service.impl;
 
-import com.configuration.RequestLog;
 import com.service.AspectTestService;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package com.service;
 
-import com.configuration.RequestLog;
+import com.configure.RequestLog;
 import org.springframework.stereotype.Service;
 
 @Service

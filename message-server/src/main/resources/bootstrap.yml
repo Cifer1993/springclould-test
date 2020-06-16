@@ -1,25 +1,41 @@
 server:
-  port: 18011
+  port: 18003
 spring:
   application:
     name: message-server
-  datasource:                           #数据库连接#
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springboot_test&characterEncoding=utf8&useSSL=false
-    username: root
-    password: root
-  cloud:
-    kafka:
-      # 服务器地址
-      bootstrap-servers: 127.0.0.1:9092
-#      template:    # 指定默认topic id
-#          default-topic: kafkatest
-      consumer:
-        # key/value的序列化
-        key-serializer: org.apache.kafka.common.serialization.StringSerializer
-        value-serializer: org.apache.kafka.common.serialization.StringSerializer
-        groupId: mygroup
-
+#  datasource:
+#      driver-class-name: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://localhost:3306/springboot_test
+#      username: root
+#      password: root
+#  kafka:
+#    # 服务器地址
+#    bootstrap-servers: 127.0.0.1:9092
+#    # 生产者
+#    producer:
+#      # 设置大于0的值，则客户端会将发送失败的记录重新发送
+#      retries: 3
+#      batch-size: 16384
+#      # 指定消息key和消息体的编解码方式
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      buffer-memory: 33554432
+#    consumer:
+#      group-id: myGroup
+#      enable-auto-commit: false
+#  ribbitmq:
+#    host: 127.0.0.1
+#    prot: 5672
+#    virtual-host: lucifer
+#    username: guest
+#    password: guest
+#    listener:
+#      simple:
+#        concurrency: 5
+#        max-concurrenty: 10
+#        acknowledge-mode: manual
+#        prefetch: 1
+#        default-requeue-rejected: false
 eureka:
   client:
     serviceUrl:

@@ -1,6 +1,9 @@
 package com;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
@@ -12,9 +15,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
 
 @EnableDiscoveryClient
-@SpringBootApplication(exclude=
-		{DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
-@EnableFeignClients
+@SpringBootApplication
+//@EnableFeignClients
+//@MapperScan("com.dao")
+@EnableAutoConfiguration
+//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class CarServerApplication {
 
 	@Bean

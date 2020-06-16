@@ -1,6 +1,7 @@
 package com.Entity;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -8,17 +9,16 @@ import java.math.BigDecimal;
 /**
  * Created by Administrator on 2018/10/29.
  */
-@Entity
+//@Entity
 @Data
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    @Column
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+//    @Column
     private String username;
-    @Column
+//    @Column
     private String name;
-    @Column
-    private Integer age;
-
+//    @Column
+    private BigDecimal balance;
 }

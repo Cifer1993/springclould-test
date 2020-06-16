@@ -22,6 +22,6 @@ public class AsyncTask {
 //        }
         i++;
         System.out.println(Thread.currentThread().getName()+"异步调用"+i);
-        return new AsyncResult<>("调用完成"+i);
+        return new AsyncResult<String>("调用完成"+i);
     }
 }

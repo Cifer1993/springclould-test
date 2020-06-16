@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by Administrator on 2019/1/15.
  */
 
-@FeignClient(name="user-server")
+@FeignClient(name="message-server")
 public interface CarFeignClient {
 
     @RequestMapping(value="/userServer/getUserById/{id}", method= RequestMethod.GET)

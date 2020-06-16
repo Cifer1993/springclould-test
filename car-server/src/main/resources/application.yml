@@ -1,11 +1,11 @@
 server:
-  port: 18002
+  port: 18001
 spring:
   application:
       name: car-server
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springboot_test&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://localhost:3306/springboot_test
     username: root
     password: root
   redis:
@@ -23,20 +23,31 @@ spring:
     port: 6379
   kafka:
     bootstrap-servers: 127.0.0.1:9092,127.0.0.1:9093,127.0.0.1:9094
-    # 生产者
-    producer:
-      # 客户端会将发送失败的记录重新发送
-      retries: 3
-      batch-size: 16384
-      # 指定消息key和消息体的编解码方式
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
     consumer:
-     group-id: mygroup
-     enable-auto-commit: true
+     group-id: myGroup
+     enable-auto-commit: false
+    listener:
+      ack-mode: manual_immediate
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    virtual-host: lucifer
+#    username: guest
+#    password: guest
+#    publisher-confirms: true
+#    publisher-returns: true
+#    template:
+#      mandatory: true
+#    connection-timeout: 10000
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.entity.*
+
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+logging:
+  level: debug

@@ -2,6 +2,7 @@ package com.component;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
 
 /**
@@ -20,9 +21,15 @@ public class MyKafkaConsumer {
 //                    partitionOffsets = @PartitionOffset(partition = "1", initialOffset = "100"))
 //    })
     @KafkaListener(topics="myReplicated",group = "myGroup")
-    public void listen(ConsumerRecord<String, String> record){
+    public void listen(ConsumerRecord<Object, String> record, Acknowledgment acknowledgment){
         String value = record.value();
         System.out.println(value);
         System.out.println(record);
+//        try {
+//            Thread.sleep(100);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        acknowledgment.acknowledge();
     }
 }
