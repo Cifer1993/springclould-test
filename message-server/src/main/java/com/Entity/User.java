@@ -1,9 +1,6 @@
 package com.Entity;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.*;
 import java.math.BigDecimal;
 
 /**
