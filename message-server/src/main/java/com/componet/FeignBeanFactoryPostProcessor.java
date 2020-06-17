@@ -17,7 +17,7 @@ import java.util.Arrays;
  **/
 @Component
 //public class FeignBeanFactoryPostProcessor{
-    public class FeignBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
+public class FeignBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
     private static final String FEIGN_CONTEXT_BEAN_NAME="feignContext";
     private static final String EUREKA_AUTO_SERVICE_REGISTRATION_BEAN_NAME="eurekaAutoServiceRegistration";
 
@@ -31,7 +31,7 @@ import java.util.Arrays;
 
     private boolean containsBeanDefinition(final ConfigurableListableBeanFactory beanFactory, String... beans) {
 
-        return false;
+        return Arrays.stream(beans).allMatch(b -> beanFactory.containsBeanDefinition(b));
     }
 
 }

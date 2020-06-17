@@ -30,6 +30,12 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
+		<!-- spring boot 热启动 -->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-devtools</artifactId>-->
+			<!--<scope>runtime</scope>-->
+		<!--</dependency>-->
 		<!--&lt;!&ndash; mysql连接 &ndash;&gt;-->
 		<!--<dependency>-->
 			<!--<groupId>mysql</groupId>-->

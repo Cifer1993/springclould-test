@@ -52,8 +52,11 @@ public class CarController {
     public User getUserById(@PathVariable Long id){
         User user = userDao.queryUserById(id);
         try {
+            Thread.sleep(6000);
             System.out.println(InetAddress.getLocalHost());
         } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return user;

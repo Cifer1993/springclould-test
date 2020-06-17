@@ -1,5 +1,5 @@
 server:
-  port: 18003
+  port: 18010
 spring:
   application:
     name: message-server
