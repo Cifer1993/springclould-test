@@ -43,6 +43,7 @@ mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.entity.*
 
+
 eureka:
   client:
     serviceUrl:

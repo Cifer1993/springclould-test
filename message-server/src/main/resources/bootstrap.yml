@@ -3,6 +3,21 @@ server:
 spring:
   application:
     name: message-server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
+#ribbon:
+#  ReadTimeout: 4000
+#  ConnecTimeout: 4000
+#  http:
+#    client:
+#      enabled: true
 #  datasource:
 #      driver-class-name: com.mysql.jdbc.Driver
 #      url: jdbc:mysql://localhost:3306/springboot_test
@@ -36,12 +51,3 @@ spring:
 #        acknowledge-mode: manual
 #        prefetch: 1
 #        default-requeue-rejected: false
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    prefer-ip-address: true
-feign:
-  hystrix:
-    enabled: true
