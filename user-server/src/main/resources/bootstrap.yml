@@ -1,19 +1,19 @@
 server:
-  port: 8002
+  port: 18011
 spring:
   application:
     name: user-server
-#  datasource:                           #数据库连接#
-#    driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/springboot-test
-#    username: root
-#    password: 123456
+  datasource:                           #数据库连接#
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springboot_test
+    username: root
+    password: root
   cloud:
     kafka:
       # 服务器地址
-      bootstrap-servers: 192.168.153.130:9092
+      bootstrap-servers: 127.0.0.1:9092,127.0.0.1:9093,127.0.0.1:9094
       template:    # 指定默认topic id
-          default-topic: kafkatest
+          default-topic: myReplicated
       producer:
         # key/value的序列化
         key-serializer: org.apache.kafka.common.serialization.StringSerializer
@@ -22,7 +22,6 @@ spring:
         batch-size: 65536
         # 缓存容量
         buffer-memory: 524288
-
 
 eureka:
   client:
@@ -34,3 +33,6 @@ eureka:
     lease-expiration-duration-in-seconds: 90  # 发呆时间，即服务续约到期时间（缺省为90s）
     instance-id: ${spring.cloud.client.ipAddress}:${server.port}
 
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.entity.*

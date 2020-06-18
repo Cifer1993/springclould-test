@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-//@EnableFeignClients
+@EnableFeignClients
 //@MapperScan("com.dao")
 @EnableAutoConfiguration
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})

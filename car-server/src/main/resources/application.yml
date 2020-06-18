@@ -1,5 +1,5 @@
 server:
-  port: 18002
+  port: 18001
 spring:
   application:
       name: car-server
@@ -49,6 +49,22 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
   instance:
-    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30     # 心跳时间，即服务续约间隔时间（缺省为30s）
+    lease-expiration-duration-in-seconds: 90  # 发呆时间，即服务续约到期时间（缺省为90s）
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
 logging:
   level: debug
+
+feign:
+  hystrix:
+    enabled: true
+ribbon:
+  ReadTimeout: 4000
+  ConnecTimeout: 4000
+  # 每一台服务器重试的次数，不包含首次调用的那一次
+  MaxAutoRetries: 1
+  # 重试服务器个数，不包含首次调用的那一台实例
+  MaxAutoRetriesNextServer: 2
+  http:
+    client:
+      enabled: true

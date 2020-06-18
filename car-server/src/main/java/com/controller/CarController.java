@@ -1,10 +1,9 @@
 package com.controller;
 
-import com.FeignClient.CarFeignClient;
+import com.FeignClient.UserFeignClient;
 import com.configure.RequestLog;
 import com.dao.UserDao;
 import com.entity.User;
-import com.netflix.discovery.DiscoveryClient;
 import com.service.AspectTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -20,8 +19,6 @@ import java.net.UnknownHostException;
  */
 @RestController
 public class CarController {
-//    @Autowired
-//    private CarFeignClient carFeignClient;
 
     @Autowired
     private AspectTestService aspectTestService;
@@ -30,6 +27,8 @@ public class CarController {
     private RedisTemplate redisTemplate;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private UserFeignClient userFeignClient;
 
 //    @GetMapping("/user/getUserById/{id}")
 //    public User findById(@PathVariable Long id) {
@@ -40,24 +39,22 @@ public class CarController {
     @GetMapping("/getAspect")
     @RequestLog
     public String getAspect(){
-//        redisTemplate.opsForValue().set("username:1","cifer");
-//        String name = (String) redisTemplate.opsForValue().get("username:1");
         System.out.println("111");
         aspectTestService.AspectB();
         return "111";
-//        aspectTestService.AspectB();
     }
 
-    @GetMapping("/userServer/getUserById/{id}")
+    @GetMapping("/getUserById/{id}")
+    @RequestLog
     public User getUserById(@PathVariable Long id){
-        User user = userDao.queryUserById(id);
+        User user = userFeignClient.findUserById(id);
         try {
-            Thread.sleep(6000);
+//            Thread.sleep(6000);
             System.out.println(InetAddress.getLocalHost());
         } catch (UnknownHostException e) {
             e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
         }
         return user;
     }

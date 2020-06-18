@@ -7,17 +7,23 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
   instance:
     prefer-ip-address: true
 feign:
   hystrix:
     enabled: true
-#ribbon:
-#  ReadTimeout: 4000
-#  ConnecTimeout: 4000
-#  http:
-#    client:
-#      enabled: true
+ribbon:
+  ReadTimeout: 4000
+  ConnecTimeout: 4000
+  # 每一台服务器重试的次数，不包含首次调用的那一次
+  MaxAutoRetries: 1
+  # 重试服务器个数，不包含首次调用的那一台实例
+  MaxAutoRetriesNextServer: 2
+  http:
+    client:
+      enabled: true
 #  datasource:
 #      driver-class-name: com.mysql.jdbc.Driver
 #      url: jdbc:mysql://localhost:3306/springboot_test

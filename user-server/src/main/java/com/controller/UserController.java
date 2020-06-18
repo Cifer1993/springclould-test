@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.cloud.client.serviceregistry.Registration;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 /**
  * Created by Administrator on 2018/10/29.
  */
 @RestController
-@RequestMapping("/userServer")
 public class UserController {
 
     @Autowired
@@ -23,8 +25,13 @@ public class UserController {
     private Registration registration;
 
     @GetMapping("/getUserById/{id}")
-    public User findById(@PathVariable Long id) {
+    public User findUserById(@PathVariable("id") Long id) {
         User user = userService.getUserById(id);
+        try {
+            System.out.println(InetAddress.getLocalHost());
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
         return user;
     }
 

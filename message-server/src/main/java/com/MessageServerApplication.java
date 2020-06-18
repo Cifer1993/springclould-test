@@ -11,10 +11,10 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 @EnableDiscoveryClient
-//@SpringBootApplication
+@SpringBootApplication
 @EnableFeignClients
 @EnableAutoConfiguration
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class MessageServerApplication {
 
 	public static void main(String[] args) {

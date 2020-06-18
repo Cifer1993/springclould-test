@@ -14,10 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
 
     @Autowired
-    private UserDao userdao;
+    private UserDao userDao;
 
     @Transactional
     public User getUserById(Long id){
-        return userdao.SelectUserById(id);
+        User user = userDao.queryUserById(id);
+        return user;
     }
 }
