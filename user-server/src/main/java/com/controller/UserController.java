@@ -26,6 +26,11 @@ public class UserController {
 
     @GetMapping("/getUserById/{id}")
     public User findUserById(@PathVariable("id") Long id) {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         User user = userService.getUserById(id);
         try {
             System.out.println(InetAddress.getLocalHost());
